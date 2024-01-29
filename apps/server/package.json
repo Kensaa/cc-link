@@ -6,8 +6,8 @@
     "license": "MIT",
     "main": "dist/server.js",
     "scripts": {
-        "dev": "tsc && node .",
-        "build": "tsc",
+        "dev": "db:generate && tsc && node .",
+        "build": "yarn db:generate && tsc",
         "db:generate": "prisma generate",
         "db:push": "prisma db push --accept-data-loss",
         "db:studio": "prisma studio"

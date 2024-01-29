@@ -1,1 +1,1 @@
-See repository [README]("https://github.com/Kensaa/cc-link)
+See repository [README](https://github.com/Kensaa/cc-link)

@@ -1,0 +1,25 @@
+{
+    "name": "cc-link",
+    "version": "1.0.0",
+    "description": "",
+    "private": true,
+    "author": "Kensa",
+    "license": "ISC",
+    "workspaces": [
+        "apps/*",
+        "packages/*"
+    ],
+    "scripts": {
+        "dev": "dotenv -- turbo dev",
+        "start": "dotenv -- turbo dev",
+        "build": "dotenv -- turbo build",
+        "db:generate": "dotenv -- turbo db:generate",
+        "db:push": "dotenv -- turbo db:push",
+        "db:studio": "dotenv -- turbo db:studio"
+    },
+    "devDependencies": {
+        "dotenv-cli": "^7.3.0",
+        "turbo": "^1.11.3",
+        "typescript": "^5.3.3"
+    }
+}

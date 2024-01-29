@@ -1,0 +1,25 @@
+{
+    "files.exclude": {
+        "**/.git": true,
+        "**/.turbo": true,
+        "**/node_modules": true,
+        "**/dist": true,
+        "yarn.lock": true,
+        "**/yarn-error.log": true
+    },
+    "Lua.diagnostics.globals": [
+        "turtle",
+        "shell",
+        "fs",
+        "http",
+        "gps",
+        "sleep",
+        "peripheral",
+        "term",
+        "read",
+        "parallel",
+        "textutils",
+        "os"
+    ],
+    "Lua.diagnostics.disable": ["undefined-field", "lowercase-global"]
+}

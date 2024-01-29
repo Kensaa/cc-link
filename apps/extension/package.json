@@ -45,7 +45,7 @@
     },
     "scripts": {
         "vscode:publish": "vsce publish",
-        "vscode:package": "vsce package",
+        "vscode:package": "cp ../../README.md . && cp ../../LICENCE . && vsce package && rm README.md && rm LICENCE",
         "vscode:prepublish": "yarn esbuild-base --minify",
         "build": "yarn vscode:package",
         "esbuild-base": "esbuild ./src/extension.ts --bundle --outfile=out/main.js --external:vscode --format=cjs --platform=node",

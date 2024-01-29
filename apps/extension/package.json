@@ -1,0 +1,44 @@
+{
+    "name": "cclink",
+    "displayName": "CC Link",
+    "description": "A extension linking vscode and computercraft",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.85.0"
+    },
+    "categories": [
+        "Other"
+    ],
+    "activationEvents": [
+        "onLanguage:lua"
+    ],
+    "main": "./out/extension.js",
+    "contributes": {
+        "commands": [
+            {
+                "command": "cclink.helloWorld",
+                "title": "Hello World"
+            }
+        ],
+        "configuration": {
+            "title": "CC Link",
+            "properties": {
+                "cclink.serverURL": {
+                    "title": "Server URL",
+                    "type": "string",
+                    "description": "The URL of the server to connect to",
+                    "default": "http://localhost:7541"
+                }
+            }
+        }
+    },
+    "scripts": {
+        "build": "tsc -p ./"
+    },
+    "devDependencies": {
+        "@types/vscode": "^1.85.0",
+        "@types/mocha": "^10.0.6",
+        "@types/node": "18.x",
+        "typescript": "^5.3.3"
+    }
+}

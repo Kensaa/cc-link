@@ -68,7 +68,7 @@ function setup()
     if(fs.exists('./startup.lua')) then
         fs.delete('./startup.lua')
     end
-    shell.run('wget '..url..'/clients/cc-link.lua startup.lua')
+    shell.run('wget '..url..'/ startup.lua')
     os.reboot()
 end
 

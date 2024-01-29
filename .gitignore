@@ -7,3 +7,4 @@ out
 migrations
 *.db*
 yarn-error.log
+*.vsix

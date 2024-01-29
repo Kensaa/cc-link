@@ -21,6 +21,10 @@
         "db:studio": {
             "cache": false,
             "persistent": true
+        },
+        "vscode:publish": {
+            "cache": true,
+            "outputs": ["out/**/*"]
         }
     }
 }

@@ -15,7 +15,8 @@
         "build": "dotenv -- turbo build",
         "db:generate": "dotenv -- turbo db:generate",
         "db:push": "dotenv -- turbo db:push",
-        "db:studio": "dotenv -- turbo db:studio"
+        "db:studio": "dotenv -- turbo db:studio",
+        "vscode:publish": "dotenv -- turbo vscode:publish"
     },
     "devDependencies": {
         "dotenv-cli": "^7.3.0",

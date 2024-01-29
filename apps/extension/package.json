@@ -45,8 +45,9 @@
     },
     "scripts": {
         "vscode:publish": "vsce publish",
+        "vscode:package": "vsce package",
         "vscode:prepublish": "yarn esbuild-base --minify",
-        "build": "yarn vscode:prepublish",
+        "build": "yarn vscode:package",
         "esbuild-base": "esbuild ./src/extension.ts --bundle --outfile=out/main.js --external:vscode --format=cjs --platform=node",
         "dev": "yarn esbuild-base --sourcemap",
         "test-compile": "tsc -p ./"

@@ -4,7 +4,7 @@
         "**/.turbo": true,
         "**/node_modules": true,
         "**/dist": true,
-        "**/out": false,
+        "**/out": true,
         "yarn.lock": true,
         "**/yarn-error.log": true
     },

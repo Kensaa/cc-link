@@ -8,6 +8,8 @@ import path from 'path'
 import fs from 'fs'
 
 const PORT = parseInt(process.env.SERVER_PORT || '7541')
+const URL = process.env.URL ?? 'http://localhost:' + PORT
+
 const wait = (ms: number) => new Promise(resolve => setTimeout(resolve, ms))
 
 interface Computer {
@@ -137,7 +139,8 @@ const wsMessagesSchema = z.discriminatedUnion('type', [
     )
     console.log('clients folder :', CLIENTS_PATH)
     app.get('/', (req, res) => {
-        const file = fs.readFileSync(path.join(CLIENTS_PATH, 'cc-link.lua'), 'utf-8')
+        let file = fs.readFileSync(path.join(CLIENTS_PATH, 'cc-link.lua'), 'utf-8')
+        file = file.replace('$$URL$$', URL)
         res.status(200).send(file)
     })
 })()

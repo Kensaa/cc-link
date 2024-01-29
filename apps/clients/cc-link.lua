@@ -1,3 +1,5 @@
+local DEFAULT_URL = "$$URL$$"
+
 local configFields = {
     url = 'string',
     fileIDs = 'table',
@@ -44,8 +46,6 @@ function setup()
     print("Please note that this script will delete any startup.lua file already existing on this computer")
     print("Press Enter to continue")
     read()
-    print("Please enter the url of the server you want to connect to")
-    local url = removeEndSlash(stringInput(1)[1])
     print("Please enter the ids of the files you want to sync")
     local fileIDs = stringToNumberArray(stringInput())
     print("Please enter the root directory of the files you want to sync, leave empty for the root directory of the computer")
@@ -53,7 +53,7 @@ function setup()
     print("Please enter the file you want to to be ran at startup, leave empty for auto-detection (startup.lua or the first lua file in the root directory)")
     local entrypoint = removeEndSlash(stringInput(1)[1])
     local config = {
-        url = url,
+        url = DEFAULT_URL,
         fileIDs = fileIDs,
         root = root,
         entrypoint = entrypoint
@@ -68,7 +68,7 @@ function setup()
     if(fs.exists('./startup.lua')) then
         fs.delete('./startup.lua')
     end
-    shell.run('wget '..url..'/ startup.lua')
+    shell.run('wget '..DEFAULT_URL..' startup.lua')
     os.reboot()
 end
 

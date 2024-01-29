@@ -3,7 +3,6 @@ build
 .turbo
 node_modules
 out
-.env
 migrations
 *.db*
 yarn-error.log

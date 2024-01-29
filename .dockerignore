@@ -1,0 +1,9 @@
+dist
+build
+.turbo
+node_modules
+out
+migrations
+*.db*
+yarn-error.log
+*.vsix

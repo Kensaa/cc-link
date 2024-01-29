@@ -1,4 +1,4 @@
-import { workspace, window, StatusBarAlignment, commands, Position } from 'vscode'
+import { workspace, window, StatusBarAlignment, commands, Position, Range } from 'vscode'
 import type { ExtensionContext } from 'vscode'
 import * as path from 'path'
 
@@ -22,7 +22,8 @@ export function activate({ subscriptions }: ExtensionContext) {
 
             const fileContent = window.activeTextEditor.document.getText()
             const lines = fileContent.split('\n')
-            const headerLine = lines.find(line => line.startsWith(FILE_HEADER))
+            const headerLineIndex = lines.findIndex(line => line.startsWith(FILE_HEADER))
+            const headerLine = lines[headerLineIndex]
 
             const fileName = path.basename(window.activeTextEditor.document.fileName)
 
@@ -55,6 +56,18 @@ export function activate({ subscriptions }: ExtensionContext) {
                         window.activeTextEditor
                             ?.edit(editBuilder => {
                                 editBuilder.insert(new Position(0, 0), `${FILE_HEADER}${res.id}\n`)
+                            })
+                            .then(() => {
+                                window.activeTextEditor?.document.save()
+                            })
+                    } else if (id !== res.id) {
+                        //update header
+                        window.activeTextEditor
+                            ?.edit(editBuilder => {
+                                editBuilder.replace(
+                                    new Range(new Position(headerLineIndex, 0), new Position(headerLineIndex + 1, 0)),
+                                    `${FILE_HEADER}${res.id}\n`
+                                )
                             })
                             .then(() => {
                                 window.activeTextEditor?.document.save()

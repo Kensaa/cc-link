@@ -8,6 +8,7 @@ WORKDIR /build/
 RUN cp -r /app/out/json/* .
 RUN yarn install
 RUN cp -r /app/out/full/* .
+RUN yarn db:generate
 RUN turbo build --filter=server
 RUN yarn install --production
 
